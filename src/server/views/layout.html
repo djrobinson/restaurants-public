@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/input.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,100,300italic,700' rel='stylesheet' type='text/css'>
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/skeleton.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="row">
+      <div class="header">
+      {% if admin === 'admin' %}
+        <div class="col-md-2">
+         <a id="home" href="/"><h4>Home</h4></a>
+        </div>
+        <div class="col-md-2">
+         <a id="home" href="/"><h4></h4></a>
+        </div>
+        <div class="col-md-4">
+          <h1>G Tables</h1>
+        </div>
+        <div class="col-md-2">
+         <a id="home" href="/logout"><h4>logout</h4></a>
+        </div>
+        <div class="col-md-2">
+          <a id="newRest" href="/restaurants/new"><h4>New Restaurant</h4></a>
+        </div>
+      {% elseif admin === 'user'%}
+        <div class="col-md-2">
+         <a id="home" href="/"><h4>Home</h4></a>
+        </div>
+        <div class="col-md-2">
+         <a id="home" href="/"><h4></h4></a>
+        </div>
+        <div class="col-md-4">
+          <h1>G Tables</h1>
+        </div>
+        <div class="col-md-2">
+         <a id="home" href="/"><h4></h4></a>
+        </div>
+        <div class="col-md-2">
+          <a id="newRest" href="/logout"><h4>Logout</h4></a>
+        </div>
+      {% else %}
+        <div class="col-md-2">
+         <a id="home" href="/"><h4>Home</h4></a>
+        </div>
+        <div class="col-md-2">
+         <a id="home" href="/signup"><h4>Signup</h4></a>
+        </div>
+        <div class="col-md-4">
+          <h1>G Tables</h1>
+        </div>
+        <div class="col-md-2">
+         <a id="home" href="/login"><h4>Login</h4></a>
+        </div>
+        <div class="col-md-2">
+          <a id="newRest" href="/restaurants/new"><h4></h4></a>
+        </div>
+      {% endif %}
+      </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+  </body>
+</html>

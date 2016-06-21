@@ -1,0 +1,45 @@
+ls
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>Add a review</h1>
+    <form class="inputs" method="POST" >
+      <div class="row">
+        <div class="one-third column"><h5>Name:</h5></div>
+        <div class="two-thirds column"><input type="text" name="name" value="{{review.name}}"></div>
+      </div>
+      <div class="row">
+        <div class="one-third column"><h5>Date:</h5></div>
+        <div class="two-thirds column"><input type="date" name="review_date" value="{{review.review_date}}"></div>
+      </div>
+      <div class="row">
+        <div class="one-third column"><h5>Rating:</h5></div>
+        <div class="one-third column radios" id="{{review.rating}}">
+        <input type="radio" name="rating" value="1" required> &#x2605;<br>
+        <input type="radio" name="rating" value="2"> &#x2605;&#x2605;<br>
+        <input type="radio" name="rating" value="3"> &#x2605;&#x2605;&#x2605;<br>
+        <input type="radio" name="rating" value="4"> &#x2605;&#x2605;&#x2605;&#x2605;<br>
+        <input type="radio" name="rating" value="5"> &#x2605;&#x2605;&#x2605;&#x2605;&#x2605;<br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column"><h5>Review:</h5></div>
+        <div class="two-thirds column"><input type="text" name="review" value="{{review.review}}"></div>
+      </div>
+      <div class="row">
+        <div class="one-third column">
+          <input type="submit">
+          <a class="button" href="/restaurants/{{review.restaurant_id}}">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+{% endblock %}

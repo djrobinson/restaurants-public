@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-group">
+      <form method="POST" action="/signup">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email"><br>
+        <label>Password</label>
+        <input type="password" class="form-control" name="password"><br>
+        <label>Password Confirmation</label>
+        <input type="password" class="form-control"><br>
+        <input type="checkbox" name="admin" value="admin">Admin?
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

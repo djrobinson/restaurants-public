@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="full-width-container">
+    <div class="row">
+      {% for rest in restaurants %}
+        <div class="one-third column restaurant">
+            <a href="/restaurants/{{ rest.id }}" class="overlay">
+              <h2>{{ rest.name }}</h2>
+              <div id="stars">{{ rest.rating | safe}}</div>
+              <h4 class="place">{{ rest.location }}, {{ rest.state }}</h4>
+              <h4 class="cuisine">{{ rest.cuisine }}</h4>
+            </a>
+            <img src="{{ rest.image }}" alt="Restaurant">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

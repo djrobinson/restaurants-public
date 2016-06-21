@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+
+    <h1><b>{{ restaurant.name }}</b></h1>
+    <div class="row show">
+      <div class="one-half column">
+        <img src="{{ restaurant.image }}" alt="food">
+        <br><br>
+        <h2><b>Reviews:</b></h2>
+        {% for review in reviews %}
+        <div class="review">
+          <h5>{{review.date}}</h5>
+          <h5><b>{{review.name}}</b></h5>
+          <h5 class="limitLength">{{review.review}}</h5>
+          <h5>{{review.rating | safe}}</h5>
+          <a class="button" href="/restaurants/{{restaurant.id}}/reviews/{{review.id}}/edit">Edit</a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="one-half column">
+        <h5><b>Cuisine:</b> {{ restaurant.cuisine }}</h5>
+        <h5><b>Location:</b> {{ restaurant.location }} , {{ restaurant.state }}</h5>
+        <h5><b>Description:</b> {{ restaurant.description }}</h5>
+        <h5>
+        <b>Rating:</b>
+          {{ restaurant.rating }}
+        </h5>
+      </div>
+      <br>
+      <div class="row">
+        <form method="GET" action="/restaurants/{{restaurant.id}}/delete">
+          <a class="showForms button" href="/restaurants/{{restaurant.id}}/reviews">New Review</a>
+          <a class="button" href="/restaurants/{{restaurant.id}}/edit">Edit</a>
+          <input class="button" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

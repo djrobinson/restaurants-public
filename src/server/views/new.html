@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <h1>Create a New Restaurant</h1>
+    </div>
+
+      <form class="inputs" method="POST">
+        <div class="row">
+          <div class="one-third column"><h5>Name:</h5></div>
+          <div class="two-thirds column"><input type="text" name="name" maxlength="40" required></div>
+        </div>
+        <div class="row">
+          <div class="one-third column"><h5>City:</h5></div>
+          <div class="two-thirds column"><input type="text" name="location" maxlength="40" required></div>
+        </div>
+        <div class="row">
+          <div class="one-third column"><h5>State:</h5></div>
+          <div class="two-thirds column"><select name="state">
+          {% for state in states %}
+            <option value="{{ state }}" required> {{state}}</option>
+          {% endfor %}
+          </select></div>
+        </div>
+        <div class="row">
+          <div class="one-third column"><h5>Cuisine:</h5></div>
+          <div class="two-thirds column"><select name="cuisine">
+          {% for cuisine in cuisines %}
+            <option value="{{ cuisine }}" required> {{cuisine}}</option>
+          {% endfor %}
+          </select></div>
+        </div>
+        <div class="row">
+          <div class="one-third column"><h5>Image:</h5></div>
+          <div class="two-thirds column"><input type="url" name="image" required></div>
+        </div>
+        <div class="row">
+          <div class="one-third column"><h5>Description:</h5></div>
+          <div class="two-thirds column"><textarea name="description" rows="10" required  ></textarea></div>
+        </div>
+        <div class="row">
+          <div class="one-third column">
+            <input type="submit">
+          </div>
+        </div>
+      </form>
+  </div>
+
+{% endblock %}

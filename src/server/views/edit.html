@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>Edit Restaurant</h1>
+    <form class="inputs" method="POST">
+        <div class="row">
+          <div class="one-third column">Name:</div>
+          <div class="two-thirds column"><input type="text" name="name" value="{{ restaurant.name }}" maxlength="40" required></div>
+        </div>
+        <div class="row">
+          <div class="one-third column">City:</div>
+          <div class="two-thirds column"><input type="text" name="location" value="{{ restaurant.location }}" maxlength="40" required></div>
+        </div>
+        <div class="row">
+          <div class="one-third column">State:</div>
+          <div class="two-thirds column">
+           <select name="state" required>
+            {% for st in states %}
+              {% if st === restaurant.state %}
+                <option value="{{ st }}" selected="selected"> {{st}}</option>
+              {% else %}
+                <option value="{{ st }}"> {{st}}</option>
+              {% endif %}
+            {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-third column">Cuisine:</div>
+          <div class="two-thirds column">
+            <select name="cuisine" value={{restaurant.cuisine}} required>
+              {% for cuis in cuisines %}
+                {% if cuis === cuisine %}
+                  <option value="{{ cuis }}" selected="selected" value="{{restaurant.cuisine}}"> {{cuis}}</option>
+                {% else %}
+                  <option value="{{ cuis }}"> {{cuis}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-third column">Image:</div>
+          <div class="two-thirds column"><input type="text" name="image" value="{{ restaurant.image }}" required></div>
+        </div>
+        <div class="row">
+          <div class="one-third column">Description:</div>
+          <div class="two-thirds column"><textarea name="description" rows="10">{{ restaurant.description }}</textarea></div>
+        </div>
+        <div class="row">
+          <div class="one-third column">
+            <input type="submit">
+            <a class="button" href="/restaurants/{{restaurant.id}}">Cancel</a>
+          </div>
+        </div>
+      </form>
+
+  </div>
+
+
+{% endblock %}
